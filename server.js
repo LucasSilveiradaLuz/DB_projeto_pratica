@@ -27,7 +27,12 @@ app.get("/funcionarios", (req, res) => {
     res.json(results); // Envia o resultado como JSON para o front
   });
 });
-
+app.get("/jogos", (req, res) => {
+  db.query("SELECT * FROM jogos", (err, results) => {
+    if (err) throw err; // Se der erro na query, interrompe
+    res.json(results); // Envia o resultado como JSON para o front
+  });
+});
 // Inicia o servidor na porta 3000
 app.listen(3000, () =>
   console.log("Servidor rodando em http://localhost:3000")

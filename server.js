@@ -33,6 +33,19 @@ app.get("/jogos", (req, res) => {
     res.json(results); // Envia o resultado como JSON para o front
   });
 });
+// POST /usuarios → insere um novo usuário no banco
+app.post("/funcionarios", (req, res) => {
+  const { nome, endereco, telefone, email, salario} = req.body; // Extrai os dados enviados pelo front
+  db.query(
+    "INSERT INTO funcionarios ( nome, endereco, telefone, email, salario) VALUES (?, ?)", // Query SQL com placeholders
+    [ nome, endereco, telefone, email, salario], // Valores que substituem os "?"
+    (err, result) => {
+      if (err) throw err;
+      res.json({ message: "Funcionário adicionado com sucesso!" }); // Retorno de sucesso
+    }
+  );
+});
+
 // Inicia o servidor na porta 3000
 app.listen(3000, () =>
   console.log("Servidor rodando em http://localhost:3000")

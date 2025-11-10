@@ -37,7 +37,7 @@ app.get("/jogos", (req, res) => {
 app.post("/funcionarios", (req, res) => {
   const { nome, endereco, telefone, email, salario} = req.body; // Extrai os dados enviados pelo front
   db.query(
-    "INSERT INTO funcionarios ( nome, endereco, telefone, email, salario) VALUES (?, ?)", // Query SQL com placeholders
+    "INSERT INTO funcionarios ( nome, endereco, telefone, email, salario) VALUES (?, ?, ?, ?, ?)", // Query SQL com placeholders
     [ nome, endereco, telefone, email, salario], // Valores que substituem os "?"
     (err, result) => {
       if (err) throw err;

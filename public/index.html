@@ -7,24 +7,19 @@
 </head>
 <body>
   <h1>GameOver</h1>
-
-<p id="id"></p> 
-<p id="nome"></p> 
-<p id="endereco"></p> 
-<p id="telefone"></p> 
-<p id="email"></p> 
-<p id="salario"></p> 
-<button id = "button" onclick="MostrarDados()"> Enviar</button>
-
-<p id="id2"></p>
-<p id="titulos"></p>
-<p id="valores"></p>
-<p id="tipo"></p>
-<p id="descricao"></p>
-<p id="desenvolvedora"></p>
-<p id="classificacao_etaria"></p>
-<p id="plataforma"></p>
-
+  <section id="register"></section>
+<form id="form">
+        <input type="text" id="nome" placeholder="Nome" required />
+        <input type="text" id="endereco" placeholder="endereco" required />
+        <input type="text" id="telefone" placeholder="telefone" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+    <section id="listUsers">
+      <h2>Funcionários cadastrados</h2>
+      <ul id="lista"></ul>
+    </section>
 </body>
 <script src="script.js"></script>
 </html>

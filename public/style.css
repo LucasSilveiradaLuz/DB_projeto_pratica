@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#register {
+  width: 400px;
+  height: 500px;
+  background-color: lightskyblue;
+  border-radius: 5px;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10px;
+}
+
+#listUsers {
+  width: 400px;
+  height: 500px;
+  background-color: lightskyblue;
+  border-radius: 5px;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10px;
+}
+
+#form {
+  display: flex; /* Define o formulário como um contêiner flexível */
+  flex-direction: column; /* Organiza os itens (inputs e botão) em uma coluna */
+}
+
+#form input,
+#form button {
+  margin: 0 10px 10px 10px;
+}
+
+form button {
+  color: black;
+  background-color: aliceblue;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+  box-shadow: 5px 2px 4px 1px #888888;
+}
+
+form button:hover {
+  color: black;
+  background-color: rgb(189, 211, 230);
+  transition: 0.5s ease-in;
+  border-radius: 5px;
+  border: none;
+}

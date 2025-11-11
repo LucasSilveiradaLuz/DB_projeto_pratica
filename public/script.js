@@ -17,7 +17,7 @@ let email = document.getElementById("email").value
 
 
  const form = document.getElementById("form");
- const lista = document.getElementById("lista");
+ const lista = document.getElementById("lista"); 
 
 async function carregaDados (){
       await fetch(url) 

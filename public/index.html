@@ -4,40 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameOver</title>
+    <!-- Certificando que o CSS está sendo carregado corretamente -->
+    
 </head>
 <body>
   <h1>GameOver</h1>
+  <h2> Venha trabalhar conosco! </h2>
+<style>
+    /* RESET PARA GARANTIR PADRÃO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 
-<p id="id"></p> 
-<p id="nome"></p> 
-<p id="endereco"></p> 
-<p id="telefone"></p> 
-<p id="email"></p> 
-<p id="salario"></p> 
+/* VARIÁVEIS PARA AS CORES */
+:root {
+  --color-neutral-0: #232136;         /* Fundo escuro gamer */
+  --color-primary1: #a277ff;          /* Roxo suave */
+  --color-primary2: #61ffca;          /* Verde neon suave */
+  --color-primary3: #82aaff;          /* Azul gamer */
+  --color-secundary1: #29263c;        /* Cinza grafite */
+  --color-secundary2: #393552;        /* Cinza médio */
+  --color-secundary3: #2d2a45;        /* Cinza azulado */
+  --button: #a277ff;                  /* Roxo para botões */
+  --buttonHover: #82aaff;             /* Azul ao passar mouse */
+  --shadow: rgba(97, 255, 202, 0.12); /* Sombra neon suave */
+}
 
+/* GERAL */
+body {
+  background-color: var(--color-secundary1);
+  color: #e0e0e0; /* cinza claro para o texto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-<p id="id2"></p>
-<p id="titulos"></p>
-<p id="valores"></p>
-<p id="tipo"></p>
-<p id="descricao"></p>
-<p id="desenvolvedora"></p>
-<p id="classificacao_etaria"></p>
-<p id="plataforma"></p>
+/* H1 FIXO NO CANTO SUPERIOR */
+h1 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--color-primary2);
+  z-index: 100;
+}
+h2 {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  font-size: 3rem;
+  font-weight: 500;
+  color: whitesmoke;
 
-  <section id="register"></section>
-<form id="form">
+  box-shadow: 5px 5px 10px black ;
+}
+
+/* FORMULÁRIO (REGISTER) */
+#register {
+  width: 80%;
+  max-width: 400px;
+  background-color: var(--color-neutral-0);
+  border-radius: 10px;
+
+  padding: 20px;
+  margin-top: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* FÓRMULÁRIO INPUT */
+#form input, 
+#form button {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: var(--color-secundary2);
+  color: #e0e0e0;
+  transition: 0.3s ease-in-out;
+
+}
+
+#form input:focus, 
+#form button:focus {
+  outline: none;
+
+}
+
+/* BOTÃO DO FORMULÁRIO */
+#form button {
+  background-color: var(--button);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
+}
+
+#form button:hover {
+  background-color: var(--buttonHover);
+  
+}
+
+#form button:active {
+  transform: translateY(3px);
+
+}
+
+/* TÍTULOS E SUBTÍTULOS */
+.section-title, .section-subtitle {
+  font-size: 1.5rem;
+  color: var(--color-primary1);
+  font-weight: 600;
+
+}
+
+/* FORMULÁRIO - MÁSCARA DE NEON NO INPUT FOCADO */
+#form input:focus {
+  background-color: var(--color-primary3);
+  border: 2px solid var(--color-primary2);
+}
+
+/* EFEITO DE NEON PARA OS INPUTS */
+#form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  
+}
+
+/* ANIMAÇÃO DE TELA CHEIA */
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  #register {
+    width: 90%;
+    padding: 15px;
+  }
+}
+</style>
+  <section id="register">
+    <form id="form">
         <input type="text" id="nome" placeholder="Nome" required />
-        <input type="text" id="endereco" placeholder="endereco" required />
-        <input type="text" id="telefone" placeholder="telefone" required />
+        <input type="text" id="endereco" placeholder="Endereço" required />
+        <input type="text" id="telefone" placeholder="Telefone" required />
         <input type="email" id="email" placeholder="Email" required />
         <button type="submit">Cadastrar</button>
-      </form>
-    </section>
-    <section id="listUsers">
-      <h2>Funcionários cadastrados</h2>
-      <ul id="lista"></ul>
-    </section>
-</body>
+    </form>
+  </section>
+
+  <section id="listUsers">
+
+    <ul id="lista"></ul> <!-- Aqui, usamos uma lista para adicionar os funcionários -->
+  </section>
+
 <script src="script.js"></script>
+</body>
 </html>
+

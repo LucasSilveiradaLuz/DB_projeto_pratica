@@ -1,69 +1,55 @@
-let url = "http://localhost:3000/funcionarios"
-let nome = document.getElementById("nome").value
-let endereco = document.getElementById("endereco").value
-let telefone = document.getElementById("telefone").value
-let email = document.getElementById("email").value
+let url = "http://localhost:3000/funcionarios"; // URL para obter os dados dos funcionários
+const form = document.getElementById("form");
+const lista = document.getElementById("lista"); // Lista onde os funcionários serão adicionados
 
-// /////////////////////////////
-// let url2 = "http://localhost:3000/jogos"
-// let id2 = document.getElementById("id2");
-// let titulos = document.getElementById("titulos");
-// let valores = document.getElementById("valores");
-// let tipo = document.getElementById("tipo");
-// let descricao = document.getElementById("descricao");
-// let desenvolvedora = document.getElementById("desenvolvedora");
-// let classificacao_etaria = document.getElementById("classificacao_etaria");
-// let plataforma = document.getElementById("plataforma");
-
-
- const form = document.getElementById("form");
- const lista = document.getElementById("lista"); 
-
-async function carregaDados (){
-      await fetch(url) 
-
-    .then((response) => {
-return response.json()
-    }
-)
+// Função para carregar funcionários
+async function carregaDados() {
+  // Fazendo uma requisição GET para buscar os funcionários
+  await fetch(url)
+    .then((response) => response.json())
     .then((data) => {
-        console.log(data)
-          
-for(let i = 0; i < data.length; i++){
-  console.log(data[i])
-  const li = document.createElement("li");
-    li.innerHTML = `${data[i].nome} - ${data[i].email}`;
-    lista.appendChild(li);
-}
-         lista.innerHTML = "";
+      lista.innerHTML = ""; // Limpar a lista antes de adicionar os dados
+      data.forEach((funcionario) => {
+        // Criar um <li> para cada funcionário
+        const li = document.createElement("li");
+        
+        // Adicionar o nome e email do funcionário dentro do <li>
+        li.innerHTML = `
+          <strong>Nome:</strong> <span>${funcionario.nome}</span><br>
+          <strong>Endereço:</strong> <span>${funcionario.endereco}</span><br>
+          <strong>Telefone:</strong> <span>${funcionario.telefone}</span><br>
+          <strong>Email:</strong> <span>${funcionario.email}</span>
+        `;
+        
+        // Adicionar o <li> na lista
+        lista.appendChild(li);
+      });
     })
     .catch((error) => {
       console.log("Erro no carregamento do banco de dados: " + error);
-    })
-
-
+    });
 }
-//Função para enviar novo usuário
+
+// Função para enviar um novo funcionário
 form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // Impede o comportamento padrão de envio do formulário
 
+  // Captura os dados do formulário
+  const nome = document.getElementById("nome").value;
+  const endereco = document.getElementById("endereco").value;
+  const telefone = document.getElementById("telefone").value;
+  const email = document.getElementById("email").value;
 
-  await fetch("/funcionarios", {
+  // Envia os dados para a API via POST
+  await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nome, endereco, telefone, email }), // manda o objeto js para o banco como json
+    body: JSON.stringify({ nome, endereco, telefone, email }), // Dados do novo funcionário
   });
 
-  form.reset(); // limpa os campos com a função nativa para tags form
-  carregaDados(); // atualiza lista
+  form.reset(); // Limpa os campos do formulário
+  carregaDados(); // Atualiza a lista de funcionários
 });
-// Carrega ao abrir a página
+
+// Carrega os dados ao abrir a página
 carregaDados();
-
- 
- 
-
-     
-      
-
-      

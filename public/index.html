@@ -12,143 +12,199 @@
   <h2> Venha trabalhar conosco! </h2>
 <style>
     /* RESET PARA GARANTIR PADRÃO */
+/* === RESET PARA GARANTIR PADRÃO === */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  margin: 0; /* Remove todas as margens padrão dos elementos */
+  padding: 0; /* Remove todos os espaçamentos internos padrão */
+  box-sizing: border-box; /* Faz com que padding e borda sejam incluídos na largura total do elemento */
+  font-family: "Poppins", sans-serif; /* Define a fonte padrão para toda a página */
 }
 
-/* VARIÁVEIS PARA AS CORES */
+/* === VARIÁVEIS DE COR (para facilitar manutenção) === */
 :root {
-  --color-neutral-0: #232136;         /* Fundo escuro gamer */
-  --color-primary1: #a277ff;          /* Roxo suave */
-  --color-primary2: #61ffca;          /* Verde neon suave */
-  --color-primary3: #82aaff;          /* Azul gamer */
-  --color-secundary1: #29263c;        /* Cinza grafite */
-  --color-secundary2: #393552;        /* Cinza médio */
-  --color-secundary3: #2d2a45;        /* Cinza azulado */
-  --button: #a277ff;                  /* Roxo para botões */
-  --buttonHover: #82aaff;             /* Azul ao passar mouse */
-  --shadow: rgba(97, 255, 202, 0.12); /* Sombra neon suave */
+  --color-neutral-0: #232136;         /* Fundo principal escuro (tema gamer) */
+  --color-primary1: #a277ff;          /* Roxo suave (para destaques e títulos) */
+  --color-primary2: #61ffca;          /* Verde neon (para bordas e efeitos) */
+  --color-primary3: #82aaff;          /* Azul gamer (para efeitos de foco) */
+  --color-secundary1: #29263c;        /* Cinza grafite (plano de fundo geral) */
+  --color-secundary2: #393552;        /* Cinza médio (cards, inputs) */
+  --color-secundary3: #2d2a45;        /* Cinza azulado (efeito hover) */
+  --button: #a277ff;                  /* Cor padrão do botão */
+  --buttonHover: #82aaff;             /* Cor do botão ao passar o mouse */
+  --shadow: rgba(97, 255, 202, 0.12); /* Sombra leve neon (para brilho) */
 }
 
-/* GERAL */
+/* === ESTILO GERAL DO BODY === */
 body {
-  background-color: var(--color-secundary1);
-  color: #e0e0e0; /* cinza claro para o texto */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
+  background-color: var(--color-secundary1); /* Cor de fundo geral */
+  color: #e0e0e0; /* Cor padrão do texto (cinza claro) */
+  display: flex; /* Usa flexbox para centralizar o conteúdo */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  min-height: 100vh; /* Faz a altura ocupar toda a tela */
+  flex-direction: column; /* Alinha os elementos verticalmente */
 }
 
-/* H1 FIXO NO CANTO SUPERIOR */
+/* === TÍTULO PRINCIPAL (GameOver) === */
 h1 {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 3rem;
-  font-weight: 900;
-  color: var(--color-primary2);
-  z-index: 100;
+  position: absolute; /* Fixa o título no topo */
+  top: 20px; /* Distância do topo */
+  left: 20px; /* Distância da esquerda */
+  font-size: 3rem; /* Tamanho grande */
+  font-weight: 900; /* Negrito pesado */
+  color: var(--color-primary2); /* Verde neon */
+  z-index: 100; /* Garante que o texto fique acima de outros elementos */
 }
+
+/* === SUBTÍTULO (Venha trabalhar conosco!) === */
 h2 {
-  position: absolute;
-  top: 100px;
-  left: 40px;
-  font-size: 3rem;
-  font-weight: 500;
-  color: whitesmoke;
-
-  box-shadow: 5px 5px 10px black ;
+  position: absolute; /* Também fixo na tela */
+  top: 100px; /* Distância do topo */
+  left: 40px; /* Distância da esquerda */
+  font-size: 3rem; /* Tamanho grande */
+  font-weight: 500; /* Peso intermediário */
+  color: whitesmoke; /* Branco suave */
+  box-shadow: 5px 5px 10px black; /* Sombra escura para destacar o texto */
 }
 
-/* FORMULÁRIO (REGISTER) */
+/* === CONTAINER DO FORMULÁRIO === */
 #register {
-  width: 80%;
-  max-width: 400px;
-  background-color: var(--color-neutral-0);
-  border-radius: 10px;
-
-  padding: 20px;
-  margin-top: 100px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  width: 80%; /* Ocupar 80% da largura disponível */
+  max-width: 400px; /* Limite máximo de largura */
+  background-color: var(--color-neutral-0); /* Fundo escuro */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  margin-top: 100px; /* Espaço superior para afastar do título */
+  text-align: center; /* Centraliza o conteúdo dentro */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Coloca os elementos em coluna */
+  gap: 20px; /* Espaço entre cada campo */
 }
 
-/* FÓRMULÁRIO INPUT */
+/* === CAMPOS DO FORMULÁRIO === */
 #form input, 
 #form button {
-  width: 100%;
-  padding: 14px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  background-color: var(--color-secundary2);
-  color: #e0e0e0;
-  transition: 0.3s ease-in-out;
-
+  width: 100%; /* Ocupa toda a largura do contêiner */
+  padding: 14px; /* Espaço interno */
+  font-size: 1rem; /* Tamanho de fonte padrão */
+  border-radius: 8px; /* Bordas arredondadas */
+  border: 1px solid #333; /* Borda cinza escura */
+  background-color: var(--color-secundary2); /* Fundo dos campos */
+  color: #e0e0e0; /* Texto claro */
+  transition: 0.3s ease-in-out; /* Animações suaves ao interagir */
 }
 
+/* === REMOVE O CONTORNO PADRÃO QUANDO SE CLICA NO INPUT === */
 #form input:focus, 
 #form button:focus {
   outline: none;
-
 }
 
-/* BOTÃO DO FORMULÁRIO */
+/* === ESTILO DO BOTÃO === */
 #form button {
-  background-color: var(--button);
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
+  background-color: var(--button); /* Cor de fundo roxa */
+  color: white; /* Texto branco */
+  border: none; /* Remove a borda */
+  cursor: pointer; /* Mostra o ponteiro ao passar o mouse */
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out; /* Transições suaves */
 }
 
+/* === BOTÃO AO PASSAR O MOUSE === */
 #form button:hover {
-  background-color: var(--buttonHover);
-  
+  background-color: var(--buttonHover); /* Muda para azul neon */
 }
 
+/* === BOTÃO AO SER CLICADO === */
 #form button:active {
-  transform: translateY(3px);
-
+  transform: translateY(3px); /* Faz o botão "afundar" levemente */
 }
 
-/* TÍTULOS E SUBTÍTULOS */
+/* === TÍTULOS SECUNDÁRIOS (caso use) === */
 .section-title, .section-subtitle {
-  font-size: 1.5rem;
-  color: var(--color-primary1);
-  font-weight: 600;
-
+  font-size: 1.5rem; /* Tamanho intermediário */
+  color: var(--color-primary1); /* Roxo suave */
+  font-weight: 600; /* Peso médio */
 }
 
-/* FORMULÁRIO - MÁSCARA DE NEON NO INPUT FOCADO */
+/* === EFEITO DE NEON NO INPUT QUANDO FOCADO === */
 #form input:focus {
-  background-color: var(--color-primary3);
-  border: 2px solid var(--color-primary2);
+  background-color: var(--color-primary3); /* Muda o fundo para azul */
+  border: 2px solid var(--color-primary2); /* Borda verde neon */
 }
 
-/* EFEITO DE NEON PARA OS INPUTS */
+/* === PLACEHOLDER (texto dentro do input) === */
 #form input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  
+  color: rgba(255, 255, 255, 0.7); /* Branco semi-transparente */
 }
 
-/* ANIMAÇÃO DE TELA CHEIA */
+/* === RESPONSIVIDADE (telas menores que 600px) === */
 @media screen and (max-width: 600px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Diminui o tamanho do título */
   }
 
   #register {
-    width: 90%;
-    padding: 15px;
+    width: 90%; /* Faz o formulário ocupar mais da tela */
+    padding: 15px; /* Diminui o espaçamento interno */
   }
+}
+
+/* === LISTA DE USUÁRIOS (cards dos cadastrados) === */
+#listUsers {
+  margin-top: 50px; /* Espaço acima da lista */
+  width: 90%; /* Largura quase total */
+  max-width: 800px; /* Limite máximo */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Coloca os elementos em coluna */
+  gap: 20px; /* Espaço entre cada card */
+}
+
+/* === UL que contém os itens da lista === */
+#lista {
+  list-style: none; /* Remove as bolinhas padrão da lista */
+  padding: 0; /* Remove espaçamento interno */
+  display: flex; /* Usa flexbox */
+  flex-direction: column; /* Coloca os <li> um abaixo do outro */
+  gap: 15px; /* Espaço entre cada item */
+}
+
+/* === ESTILO DE CADA CARD (li) === */
+#lista li {
+  background-color: var(--color-secundary2); /* Fundo cinza médio */
+  border-left: 5px solid var(--color-primary2); /* Borda lateral verde neon */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 12px; /* Bordas arredondadas */
+  box-shadow: 0 0 10px var(--shadow); /* Sombra suave neon */
+  transition: 0.3s ease-in-out; /* Animações suaves */
+}
+
+/* === EFEITO AO PASSAR O MOUSE NO CARD === */
+#lista li:hover {
+  background-color: var(--color-secundary3); /* Fundo muda pra cinza azulado */
+  box-shadow: 0 0 15px var(--color-primary2); /* Sombra mais intensa */
+  transform: scale(1.02); /* Aumenta levemente o tamanho */
+}
+
+/* === NOME DO USUÁRIO (em destaque) === */
+#lista li strong {
+  color: var(--color-primary1); /* Roxo suave */
+  font-size: 1.2rem; /* Levemente maior */
+  display: block; /* Faz ocupar a linha toda */
+  margin-bottom: 5px; /* Espaço abaixo do nome */
+}
+
+/* === TEXTOS DAS OUTRAS INFORMAÇÕES === */
+#lista li span {
+  display: block; /* Cada informação em uma linha */
+  color: #ccc; /* Cinza claro */
+  font-size: 0.95rem; /* Tamanho um pouco menor */
+  margin-bottom: 3px; /* Espaçamento entre linhas */
+}
+
+/* === ÍCONES ANTES DAS LINHAS DE TEXTO === */
+#lista li span::before {
+  content: "▹ "; /* Adiciona um símbolo antes do texto */
+  color: var(--color-primary2); /* Verde neon */
 }
 </style>
   <section id="register">

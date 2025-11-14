@@ -45,7 +45,13 @@ app.post("/funcionarios", (req, res) => {
     }
   );
 });
-
+app.delete("/funcionarios/:id", (req, res) => {
+  const { id } = req.params;
+  db.query("DELETE FROM funcionarios WHERE id = ?", [id], (err, result) => {
+    if (err) throw err;
+    res.json({ message: "Funcionário removido com sucesso!" });
+  });
+});
 // Inicia o servidor na porta 3000
 app.listen(3000, () =>
   console.log("Servidor rodando em http://localhost:3000")

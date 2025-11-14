@@ -22,7 +22,24 @@ async function carregaDados() {
         `;
         
         // Adicionar o <li> na lista
+      const botaoRemover = document.createElement("button");
+    botaoRemover.textContent = "Excluir";
+    botaoRemover.style.marginLeft = "10px";
+    botaoRemover.style.color = "green"
+
+    botaoRemover.addEventListener("click", async () => {
+      if (confirm(`Deseja realmente remover ${funcionario.nome}?`)) {
+        const resposta = await fetch(`/funcionarios/${funcionario.id}`, { method: "DELETE" });
+        if (resposta.ok) {
+          carregaDados()
+          console.log("ok");
+        } else {
+          alert("Erro ao remover usuário!");
+        }
+      }
+    })
         lista.appendChild(li);
+        li.appendChild(botaoRemover)
       });
     })
     .catch((error) => {
@@ -50,6 +67,10 @@ form.addEventListener("submit", async (e) => {
   form.reset(); // Limpa os campos do formulário
   carregaDados(); // Atualiza a lista de funcionários
 });
+
+   
+    // });
+
 
 // Carrega os dados ao abrir a página
 carregaDados();

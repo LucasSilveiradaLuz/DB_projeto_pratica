@@ -12,7 +12,7 @@ async function carregaDados() {
       data.forEach((funcionario) => {
         // Criar um <li> para cada funcionário
         const li = document.createElement("li");
-        
+     
         // Adicionar o nome e email do funcionário dentro do <li>
         li.innerHTML = `
           <strong>Nome:</strong> <span>${funcionario.nome}</span><br>

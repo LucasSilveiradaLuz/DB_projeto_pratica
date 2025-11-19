@@ -24,8 +24,9 @@ async function carregaDados() {
         // Adicionar o <li> na lista
       const botaoRemover = document.createElement("button");
     botaoRemover.textContent = "Excluir";
-    botaoRemover.style.marginLeft = "10px";
-    botaoRemover.style.color = "green"
+  
+    botaoRemover.classList.add("btn")
+    botaoRemover.classList.add("btn-dark")
 
     botaoRemover.addEventListener("click", async () => {
       if (confirm(`Deseja realmente remover ${funcionario.nome}?`)) {
